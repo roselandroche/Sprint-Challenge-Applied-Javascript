@@ -16,7 +16,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
         response.data.topics.forEach(item => {
             topics.appendChild(newTab(item))
         })
-        console.log(`Get request was successful`)
+        // console.log(`Get request was successful`)
     })
     .catch(error => {
         console.log(`Error: ${error}`)
