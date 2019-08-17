@@ -18,8 +18,7 @@
   </div>
 */
 
-const carContainer = document.querySelector('carousel-container')
-console.log(carContainer);
+const carContainer = document.querySelector('.carousel-container')
 
 function newCarousel() {
   const carDiv = document.createElement('div')
