@@ -55,3 +55,29 @@ function newCarousel() {
 }
 
 newCarousel()
+
+
+const image1 = document.querySelectorAll('img')[0]
+const image2 = document.querySelectorAll('img')[1]
+const image3 = document.querySelectorAll('img')[2]
+const image4 = document.querySelectorAll('img')[3]
+
+let currentIndex = 1;
+
+const leftButton = document.querySelector('.left-button')
+leftButton.addEventListener('click', (event) => {
+  if (currentIndex === 1) {
+    currentIndex = 4;
+  } else {
+    currentIndex -= 1;
+  }
+})
+
+const rightButton = document.querySelector('.right-button')
+rightButton.addEventListener('click', (event) => {
+  if (currentIndex === 4) {
+    currentIndex = 1;
+  } else {
+    currentIndex += 1;
+  }
+})
