@@ -31,22 +31,22 @@ function newCarousel() {
   carDiv.appendChild(leftBtn)
 
   const img1 = document.createElement('img')
-  img1.classList.add('img1')
+  img1.classList.add('img1', 'carImg')
   img1.src = './assets/carousel/mountains.jpeg'
   carDiv.appendChild(img1)
 
   const img2 = document.createElement('img')
-  img2.classList.add('img2')
+  img2.classList.add('img2', 'carImg')
   img2.src = './assets/carousel/computer.jpeg'
   carDiv.appendChild(img2)
 
   const img3 = document.createElement('img')
-  img3.classList.add('img3')
+  img3.classList.add('img3', 'carImg')
   img3.src = './assets/carousel/trees.jpeg'
   carDiv.appendChild(img3)
 
   const img4 = document.createElement('img')
-  img4.classList.add('img4')
+  img4.classList.add('img4', 'carImg')
   img4.src = './assets/carousel/turntable.jpeg'
   carDiv.appendChild(img4)
 
@@ -60,45 +60,38 @@ function newCarousel() {
 
 newCarousel()
 
+const imgArr = document.querySelectorAll('.carImg')
+console.log(imgArr)
 
-const image1 = document.querySelectorAll('img1')
-const image2 = document.querySelectorAll('img2')
-const image3 = document.querySelectorAll('img3')
-const image4 = document.querySelectorAll('img4')
+let currentIndex = 0;
+imgArr[currentIndex].style.display = 'block'
 
-let currentIndex = 1;
+const revolve = () => {
+  imgArr.forEach((img, index) => {
+    if(currentIndex === index) {
+      img.style.display = 'block'
+    } else {
+      img.style.display = 'none'
+    }
+  })
+}
 
 const leftButton = document.querySelector('.left-button')
 leftButton.addEventListener('click', (event) => {
-  if (currentIndex === 1) {
-    currentIndex = 4;
+  if (currentIndex === 0) {
+    currentIndex = 3;
   } else {
     currentIndex -= 1;
   }
+  revolve()
 })
 
 const rightButton = document.querySelector('.right-button')
 rightButton.addEventListener('click', (event) => {
-  if (currentIndex === 4) {
-    currentIndex = 1;
+  if (currentIndex === 3) {
+    currentIndex = 0;
   } else {
     currentIndex += 1;
   }
+  revolve()
 })
-
-// switch (currentIndex) {
-//   case 1:
-//     image1.display = 'block';
-//     break;
-//   case 2:
-//     image2.style.display = 'block';
-//     break;
-//   case 3:
-//     image3.style.display = 'block';
-//     break;
-//   case 4:
-//     image4.style.display = 'block';
-//     break;
-//   default:
-//     console.log('Something is wrong');
-}

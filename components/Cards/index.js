@@ -54,7 +54,7 @@ function newArticle(obj) {
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(response => {
         let dataObj = response.data.articles
-        // console.log(dataObj.javascript)
+        // console.log(dataObj)
 
         dataObj.javascript.forEach(item => {
             cardsContainer.appendChild(newArticle(item))
